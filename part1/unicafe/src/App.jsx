@@ -22,19 +22,17 @@ const App = () => {
     return (
         <>
             <h1>give feedback</h1>
-            <div>
+            <div id="button-list">
                 <button onClick={handleOnClick} id="good">good</button>
                 <button onClick={handleOnClick} id="neutral">neutral</button>
                 <button onClick={handleOnClick} id="bad">bad</button>
             </div>
             <h1>statistics</h1>
-            <p>
-                good {good}
-                <br />
-                neutral {neutral}
-                <br />
-                bad {bad}
-            </p>
+            <div id="stats-list">
+                <div>good {good}</div>
+                <div>neutral {neutral}</div>
+                <div>bad {bad}</div>
+            </div>
         </>
     )
 }
