@@ -12,8 +12,8 @@ const App = () => {
     'The only way to go fast, is to go well.'
   ]
 
-  const [selected, setSelected] = useState(0)                               //anecdotes index
-  const [votes, setVotes] = useState(new Uint8Array(anecdotes.length))      //num of votes of specific index
+  const [selected, setSelected] = useState(0)
+  const [votes, setVotes] = useState(new Uint8Array(anecdotes.length))
 
   const handleGenerate = () => {
     const index = Math.floor(Math.random() * anecdotes.length);
