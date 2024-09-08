@@ -1,7 +1,5 @@
 export const Filter = ({ onChange, value }) => {
     return (
-        <div>filter shown with
-            <input onChange={onChange} value={value} />
-        </div>
+        <div>filter shown with <input onChange={onChange} value={value} /></div>
     )
 }

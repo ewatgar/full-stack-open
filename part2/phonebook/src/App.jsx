@@ -16,15 +16,19 @@ const App = () => {
 
   const handleOnSubmitForm = (event) => {
     event.preventDefault();
-    if (persons.some((p) => p.name === newName)) {
-      alert(`${newName} is already added to phonebook`);
-    } else {
-      //const lastId = 
-      //const newPerson = { name: newName, number: newNumber, id:  };
-      setPersons([...persons, newPerson]);
+    if (!newName || !newNumber){
+      alert(`All inputs need to be filled`)
     }
-    setNewName('');
-    setNewNumber('');
+    else if (persons.some((p) => p.name === newName)) {
+      alert(`${newName} is already added to phonebook`);
+    }
+    else {
+      const lastId = persons.at(-1).id;
+      const newPerson = { name: newName, number: newNumber, id: lastId + 1 };
+      setPersons([...persons, newPerson]);
+      setNewName('');
+      setNewNumber('');
+    }
   };
 
   const handleOnChangeFilterInput = (event) => setFilter(event.target.value);
@@ -33,10 +37,6 @@ const App = () => {
 
   return (
     <div>
-      <div>debug filter: {filter}</div>
-      <div>debug name: {newName}</div>
-      <div>debug number: {newNumber}</div>
-
       <h2>Phonebook</h2>
       <Filter onChange={handleOnChangeFilterInput} value={filter} />
 
